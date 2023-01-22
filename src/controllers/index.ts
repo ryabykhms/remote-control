@@ -1,3 +1,4 @@
+import { DrawController } from './draw-controller';
 import { ControllerParams, IController } from './IController';
 import { MouseController } from './mouse-controller';
 
@@ -10,6 +11,7 @@ enum ControllerTypes {
 export class MessageController {
   private controllers = new Map<ControllerTypes, () => IController>([
     [ControllerTypes.MOUSE, () => new MouseController()],
+    [ControllerTypes.DRAW, () => new DrawController()],
   ]);
 
   public handleMessage(...args: string[]): Promise<string> {
