@@ -1,75 +1,48 @@
-# Assignment: Websocket Remote Control
+# [Websocket Remote Control](https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/remote-control/assignment.md)
 
-## Description
+## Setup
 
-Your task is to implement remote control backend using `nutjs.dev` library and websocket.
-
-User interface for your remote control backend is [here](https://github.com/rolling-scopes-school/remote-control)
-
-The backend should be able to do the following:
-
-- Start websocket server
-- Handle websocket connection
-- Move mouse (Up, Down, Left, Right)
-- Draw circle, rectangle and square
-- Send current mouse coordinates
-- Send desktop capture (optionally)
-
-## Technical requirements
-
-- Task can be implemented on Javascript or Typescript
-- Use 18 LTS version of Node.js
-- Only [ws](https://www.npmjs.com/package/ws), [nutjs.dev](https://www.npmjs.com/package/@nut-tree/nut-js), [jimp](https://www.npmjs.com/package/jimp), `cross-env`, `typescript`, `ts-node`, `ts-node-dev`, `nodemon`, `dotenv`, `eslint` and its plugins, `webpack` and its plugins, `prettier`, `@types/*` and testing tools (for example, Jest, Mocha, AVA, Jasmine, Cypress, Storybook, Puppeteer) are allowed
-- The program is started by npm script `start` in following way:
+Clone the repo:
 
 ```bash
-npm run start
+git clone https://github.com/ryabykhms/remote-control.git
+
 ```
 
-- After starting the program displays websocket parameters
-- After program work finished the program should end websocket work correctly
-- After each received command program should display the command and result
+Change directory:
 
-List of websocket commands and their syntax (<- - cmd from frontend, -> - answer):
+```bash
+cd remote-control
+```
 
-- Navigation over the x and y axis
-  - Move mouse up
-  ```bash
-  <- mouse_up {y px}
-  ```
-  - Move mouse down
-  ```bash
-  <- mouse_down {y px}
-  ```
-  - Move mouse left
-  ```bash
-  <- mouse_left {x px}
-  ```
-  - Move mouse right
-  ```bash
-  <- mouse_right {x px}
-  ```
-  - Send mouse coordinates
-  ```bash
-  <- mouse_position
-  -> mouse_position {x px},{y px}
-  ```
-- Drawing
-  - Draw circle with pushed left button:
-  ```bash
-  <- draw_circle {px}
-  ```
-  - Draw rectangle with pushed left button:
-  ```bash
-  <- draw_rectangle {px} {px}
-  ```
-  - Draw square with pushed left button:
-  ```bash
-  <- draw_square {px}
-  ```
-- Print screen
-  - Make print screen command and send image (a base64 buffer of the 200 px square around the mouse position):
-  ```bash
-  <- prnt_scrn
-  -> prnt_scrn {base64 string (png buf)}
-  ```
+Checkout to the development branch:
+
+```bash
+git checkout develop
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+To run the app in development mode (using `nodemon`):
+
+```bash
+npm run start:dev
+```
+
+To run the app in production mode (this is just `tsc` compiler):
+
+```bash
+npm run start:prod
+```
+
+Open the following URL in your browser:
+
+```bash
+http://localhost:8181
+```
+
+Have a nice time!
